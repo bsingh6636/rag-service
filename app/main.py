@@ -1,11 +1,17 @@
 from fastapi import FastAPI , HTTPException
 import psycopg
 import httpx
+import logging
 
 from app.llm import ask_direct
 from app.schemas import AskRequest , DirectAnswer
 
 from app.config import settings
+
+logging.basicConfig(
+    level = logging.INFO ,
+    format="%(asctime)s %(levelname)s %(name)s: %(message)s" 
+)
 
 app = FastAPI(title = "RAG Service")
 

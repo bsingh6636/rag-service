@@ -8,4 +8,4 @@ class DirectAnswer ( BaseModel ) :
     model_config = ConfigDict(extra="forbid")
     answer : str 
     confidence : float = Field( ge = 0.0 , le = 1.0 )
-    assumtions : list[str]
+    assumptions : list[str]
