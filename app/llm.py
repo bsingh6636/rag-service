@@ -47,7 +47,6 @@ def ask_direct( question : str ) -> DirectAnswer :
     logger.info(
         "MWAPI response status=%s elapsed_ms=%.0f",
         response.status_code,
-        response,
         (perf_counter() - started) * 1000,
     )
 
@@ -79,6 +78,18 @@ def ask_direct( question : str ) -> DirectAnswer :
     )
 
     logger.info("Model text extracted chars=%d", len(text))
+
+    text = text.strip()
+    lines = text.splitlines()
+
+    if (
+        len(lines) >= 3
+        and lines[0].strip().lower() in ("```json", "```")
+        and lines[-1].strip() == "```"
+    ):
+        text = "\n".join(lines[1:-1]).strip()
+
+    logger.info("Model text normalized chars=%d", len(text))
 
     try : 
         answer = DirectAnswer.model_validate_json(text)
