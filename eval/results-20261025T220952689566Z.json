@@ -1,0 +1,327 @@
+[
+  {
+    "id": "supported_01",
+    "question": "Which two API documentation interfaces does FastAPI include by default?",
+    "expected_behavior": "answer",
+    "reference_answer": "Swagger UI and ReDoc.",
+    "evidence_heading": "Automatic docs",
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "FastAPI includes Swagger UI and ReDoc by default as its two API documentation interfaces.",
+      "sources": [
+        {
+          "chunk_id": 46,
+          "title": "FastAPI features",
+          "source": "https://fastapi.tiangolo.com/features/"
+        }
+      ]
+    },
+    "observed_behavior": "answer",
+    "elapsed_ms": 2849,
+    "behavior_match": true
+  },
+  {
+    "id": "supported_02",
+    "question": "Which standards does FastAPI use for API descriptions and data model documentation?",
+    "expected_behavior": "answer",
+    "reference_answer": "OpenAPI for API descriptions and JSON Schema for data model documentation.",
+    "evidence_heading": "Based on open standards",
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "FastAPI uses OpenAPI for API descriptions and JSON Schema for automatic data model documentation. These standards are foundational to the framework rather than an afterthought layer.",
+      "sources": [
+        {
+          "chunk_id": 45,
+          "title": "FastAPI features",
+          "source": "https://fastapi.tiangolo.com/features/"
+        }
+      ]
+    },
+    "observed_behavior": "answer",
+    "elapsed_ms": 3671,
+    "behavior_match": true
+  },
+  {
+    "id": "supported_03",
+    "question": "Which library handles FastAPI's data validation?",
+    "expected_behavior": "answer",
+    "reference_answer": "Pydantic.",
+    "evidence_heading": "Validation",
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "Pydantic handles FastAPI's data validation. It validates Python data types including JSON objects, arrays, strings, numbers, URLs, emails, UUIDs, and more.",
+      "sources": [
+        {
+          "chunk_id": 50,
+          "title": "FastAPI features",
+          "source": "https://fastapi.tiangolo.com/features/"
+        },
+        {
+          "chunk_id": 56,
+          "title": "FastAPI features",
+          "source": "https://fastapi.tiangolo.com/features/"
+        }
+      ]
+    },
+    "observed_behavior": "answer",
+    "elapsed_ms": 3542,
+    "behavior_match": true
+  },
+  {
+    "id": "supported_04",
+    "question": "Can FastAPI validate string lengths and minimum or maximum numeric values?",
+    "expected_behavior": "answer",
+    "reference_answer": "Yes. It supports minimum and maximum string lengths and bounds on integers and floats.",
+    "evidence_heading": "Validation",
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "Yes, FastAPI can validate string lengths and minimum or maximum numeric values. FastAPI uses Pydantic for all validation, which supports defining min and max lengths for strings and min and max values for numbers (int, float).",
+      "sources": [
+        {
+          "chunk_id": 50,
+          "title": "FastAPI features",
+          "source": "https://fastapi.tiangolo.com/features/"
+        }
+      ]
+    },
+    "observed_behavior": "answer",
+    "elapsed_ms": 3501,
+    "behavior_match": true
+  },
+  {
+    "id": "supported_05",
+    "question": "Where can API keys be supplied in FastAPI's supported security schemes?",
+    "expected_behavior": "answer",
+    "reference_answer": "Headers, query parameters, or cookies.",
+    "evidence_heading": "Security and authentication",
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "In FastAPI's supported security schemes, API keys can be supplied in headers, query parameters, and cookies.",
+      "sources": [
+        {
+          "chunk_id": 51,
+          "title": "FastAPI features",
+          "source": "https://fastapi.tiangolo.com/features/"
+        }
+      ]
+    },
+    "observed_behavior": "answer",
+    "elapsed_ms": 3018,
+    "behavior_match": true
+  },
+  {
+    "id": "supported_06",
+    "question": "Which authentication mechanisms are explicitly mentioned on the features page?",
+    "expected_behavior": "answer",
+    "reference_answer": "HTTP Basic, OAuth2 including JWT tokens, and API keys. Session cookies are also mentioned.",
+    "evidence_heading": "Security and authentication",
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "The authentication mechanisms explicitly mentioned on the features page are: HTTP Basic, OAuth2 (with JWT tokens), API keys (in headers, query parameters, and cookies), and session cookies.",
+      "sources": [
+        {
+          "chunk_id": 51,
+          "title": "FastAPI features",
+          "source": "https://fastapi.tiangolo.com/features/"
+        }
+      ]
+    },
+    "observed_behavior": "answer",
+    "elapsed_ms": 2826,
+    "behavior_match": true
+  },
+  {
+    "id": "supported_07",
+    "question": "Can FastAPI dependencies themselves have dependencies?",
+    "expected_behavior": "answer",
+    "reference_answer": "Yes. Dependencies can form a hierarchy or graph of dependencies.",
+    "evidence_heading": "Dependency Injection",
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "Yes, FastAPI dependencies can have dependencies. The framework automatically handles a hierarchy or \"graph\" of dependencies.",
+      "sources": [
+        {
+          "chunk_id": 52,
+          "title": "FastAPI features",
+          "source": "https://fastapi.tiangolo.com/features/"
+        }
+      ]
+    },
+    "observed_behavior": "answer",
+    "elapsed_ms": 2643,
+    "behavior_match": true
+  },
+  {
+    "id": "supported_08",
+    "question": "What is the relationship between FastAPI and Starlette?",
+    "expected_behavior": "answer",
+    "reference_answer": "FastAPI is based on Starlette and its FastAPI class is a subclass of Starlette.",
+    "evidence_heading": "Starlette features",
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "FastAPI is fully compatible with and based on Starlette. FastAPI is actually a sub-class of Starlette, so it includes all of Starlette's features such as WebSocket support, background tasks, startup/shutdown events, CORS, and more. FastAPI is essentially Starlette enhanced with additional capabilities.",
+      "sources": [
+        {
+          "chunk_id": 55,
+          "title": "FastAPI features",
+          "source": "https://fastapi.tiangolo.com/features/"
+        }
+      ]
+    },
+    "observed_behavior": "answer",
+    "elapsed_ms": 3155,
+    "behavior_match": true
+  },
+  {
+    "id": "supported_09",
+    "question": "Does the page list support for WebSockets and in-process background tasks?",
+    "expected_behavior": "answer",
+    "reference_answer": "Yes. Both are listed among the Starlette features available through FastAPI.",
+    "evidence_heading": "Starlette features",
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "Yes, the page lists support for WebSockets and in-process background tasks as features that FastAPI provides through Starlette.",
+      "sources": [
+        {
+          "chunk_id": 55,
+          "title": "FastAPI features",
+          "source": "https://fastapi.tiangolo.com/features/"
+        }
+      ]
+    },
+    "observed_behavior": "answer",
+    "elapsed_ms": 3085,
+    "behavior_match": true
+  },
+  {
+    "id": "supported_10",
+    "question": "Does FastAPI support validation of deeply nested JSON objects?",
+    "expected_behavior": "answer",
+    "reference_answer": "Yes. The Pydantic features section describes nested models, lists, dictionaries, and deeply nested JSON validation.",
+    "evidence_heading": "Pydantic features",
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "Yes, FastAPI supports validation of deeply nested JSON objects. FastAPI is built on Pydantic and allows you to use hierarchical Pydantic models with Python's typing module to validate complex structures, including deeply nested JSON objects. All nested objects are validated and annotated automatically.",
+      "sources": [
+        {
+          "chunk_id": 50,
+          "title": "FastAPI features",
+          "source": "https://fastapi.tiangolo.com/features/"
+        },
+        {
+          "chunk_id": 56,
+          "title": "FastAPI features",
+          "source": "https://fastapi.tiangolo.com/features/"
+        }
+      ]
+    },
+    "observed_behavior": "answer",
+    "elapsed_ms": 3417,
+    "behavior_match": true
+  },
+  {
+    "id": "refusal_01",
+    "question": "What is the capital of France?",
+    "expected_behavior": "refuse",
+    "reference_answer": "The corpus does not provide this information.",
+    "evidence_heading": null,
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "I can't answer that from the available documents.",
+      "sources": []
+    },
+    "observed_behavior": "refuse",
+    "elapsed_ms": 3264,
+    "behavior_match": true
+  },
+  {
+    "id": "refusal_02",
+    "question": "What temperature and baking time should I use for a chocolate cake?",
+    "expected_behavior": "refuse",
+    "reference_answer": "The corpus does not provide cooking instructions.",
+    "evidence_heading": null,
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "I can't answer that from the available documents.",
+      "sources": []
+    },
+    "observed_behavior": "refuse",
+    "elapsed_ms": 2959,
+    "behavior_match": true
+  },
+  {
+    "id": "refusal_03",
+    "question": "What exact PostgreSQL backup schedule has our RAG service configured?",
+    "expected_behavior": "refuse",
+    "reference_answer": "The features page does not describe this project's PostgreSQL backup configuration.",
+    "evidence_heading": null,
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "I can't answer that from the available documents.",
+      "sources": []
+    },
+    "observed_behavior": "refuse",
+    "elapsed_ms": 3098,
+    "behavior_match": true
+  },
+  {
+    "id": "refusal_04",
+    "question": "Show the exact retry and exponential backoff code used for Gemini embedding failures in this project.",
+    "expected_behavior": "refuse",
+    "reference_answer": "The features page does not include this project's embedding client implementation.",
+    "evidence_heading": null,
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "I can't answer that from the available documents.",
+      "sources": []
+    },
+    "observed_behavior": "refuse",
+    "elapsed_ms": 3117,
+    "behavior_match": true
+  },
+  {
+    "id": "refusal_05",
+    "question": "What is the documented service-level agreement for our RAG API's production uptime?",
+    "expected_behavior": "refuse",
+    "reference_answer": "The corpus contains no production uptime SLA for this RAG API.",
+    "evidence_heading": null,
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "I can't answer that from the available documents.",
+      "sources": []
+    },
+    "observed_behavior": "refuse",
+    "elapsed_ms": 2959,
+    "behavior_match": true
+  }
+]

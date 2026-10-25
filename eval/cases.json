@@ -1,0 +1,107 @@
+[
+  {
+    "id": "supported_01",
+    "question": "Which two API documentation interfaces does FastAPI include by default?",
+    "expected_behavior": "answer",
+    "reference_answer": "Swagger UI and ReDoc.",
+    "evidence_heading": "Automatic docs"
+  },
+  {
+    "id": "supported_02",
+    "question": "Which standards does FastAPI use for API descriptions and data model documentation?",
+    "expected_behavior": "answer",
+    "reference_answer": "OpenAPI for API descriptions and JSON Schema for data model documentation.",
+    "evidence_heading": "Based on open standards"
+  },
+  {
+    "id": "supported_03",
+    "question": "Which library handles FastAPI's data validation?",
+    "expected_behavior": "answer",
+    "reference_answer": "Pydantic.",
+    "evidence_heading": "Validation"
+  },
+  {
+    "id": "supported_04",
+    "question": "Can FastAPI validate string lengths and minimum or maximum numeric values?",
+    "expected_behavior": "answer",
+    "reference_answer": "Yes. It supports minimum and maximum string lengths and bounds on integers and floats.",
+    "evidence_heading": "Validation"
+  },
+  {
+    "id": "supported_05",
+    "question": "Where can API keys be supplied in FastAPI's supported security schemes?",
+    "expected_behavior": "answer",
+    "reference_answer": "Headers, query parameters, or cookies.",
+    "evidence_heading": "Security and authentication"
+  },
+  {
+    "id": "supported_06",
+    "question": "Which authentication mechanisms are explicitly mentioned on the features page?",
+    "expected_behavior": "answer",
+    "reference_answer": "HTTP Basic, OAuth2 including JWT tokens, and API keys. Session cookies are also mentioned.",
+    "evidence_heading": "Security and authentication"
+  },
+  {
+    "id": "supported_07",
+    "question": "Can FastAPI dependencies themselves have dependencies?",
+    "expected_behavior": "answer",
+    "reference_answer": "Yes. Dependencies can form a hierarchy or graph of dependencies.",
+    "evidence_heading": "Dependency Injection"
+  },
+  {
+    "id": "supported_08",
+    "question": "What is the relationship between FastAPI and Starlette?",
+    "expected_behavior": "answer",
+    "reference_answer": "FastAPI is based on Starlette and its FastAPI class is a subclass of Starlette.",
+    "evidence_heading": "Starlette features"
+  },
+  {
+    "id": "supported_09",
+    "question": "Does the page list support for WebSockets and in-process background tasks?",
+    "expected_behavior": "answer",
+    "reference_answer": "Yes. Both are listed among the Starlette features available through FastAPI.",
+    "evidence_heading": "Starlette features"
+  },
+  {
+    "id": "supported_10",
+    "question": "Does FastAPI support validation of deeply nested JSON objects?",
+    "expected_behavior": "answer",
+    "reference_answer": "Yes. The Pydantic features section describes nested models, lists, dictionaries, and deeply nested JSON validation.",
+    "evidence_heading": "Pydantic features"
+  },
+  {
+    "id": "refusal_01",
+    "question": "What is the capital of France?",
+    "expected_behavior": "refuse",
+    "reference_answer": "The corpus does not provide this information.",
+    "evidence_heading": null
+  },
+  {
+    "id": "refusal_02",
+    "question": "What temperature and baking time should I use for a chocolate cake?",
+    "expected_behavior": "refuse",
+    "reference_answer": "The corpus does not provide cooking instructions.",
+    "evidence_heading": null
+  },
+  {
+    "id": "refusal_03",
+    "question": "What exact PostgreSQL backup schedule has our RAG service configured?",
+    "expected_behavior": "refuse",
+    "reference_answer": "The features page does not describe this project's PostgreSQL backup configuration.",
+    "evidence_heading": null
+  },
+  {
+    "id": "refusal_04",
+    "question": "Show the exact retry and exponential backoff code used for Gemini embedding failures in this project.",
+    "expected_behavior": "refuse",
+    "reference_answer": "The features page does not include this project's embedding client implementation.",
+    "evidence_heading": null
+  },
+  {
+    "id": "refusal_05",
+    "question": "What is the documented service-level agreement for our RAG API's production uptime?",
+    "expected_behavior": "refuse",
+    "reference_answer": "The corpus contains no production uptime SLA for this RAG API.",
+    "evidence_heading": null
+  }
+]

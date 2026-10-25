@@ -1,0 +1,67 @@
+[
+  {
+    "id": "supported_01",
+    "question": "Which two API documentation interfaces does FastAPI include by default?",
+    "expected_behavior": "answer",
+    "reference_answer": "Swagger UI and ReDoc.",
+    "evidence_heading": "Automatic docs",
+    "answer_correct": null,
+    "citations_supported": null,
+    "observed_behavior": "error",
+    "error": "ConnectError",
+    "elapsed_ms": 2054,
+    "behavior_match": false
+  },
+  {
+    "id": "supported_02",
+    "question": "Which standards does FastAPI use for API descriptions and data model documentation?",
+    "expected_behavior": "answer",
+    "reference_answer": "OpenAPI for API descriptions and JSON Schema for data model documentation.",
+    "evidence_heading": "Based on open standards",
+    "answer_correct": null,
+    "citations_supported": null,
+    "observed_behavior": "error",
+    "error": "ConnectError",
+    "elapsed_ms": 2050,
+    "behavior_match": false
+  },
+  {
+    "id": "supported_03",
+    "question": "Which library handles FastAPI's data validation?",
+    "expected_behavior": "answer",
+    "reference_answer": "Pydantic.",
+    "evidence_heading": "Validation",
+    "answer_correct": null,
+    "citations_supported": null,
+    "observed_behavior": "error",
+    "error": "ConnectError",
+    "elapsed_ms": 2051,
+    "behavior_match": false
+  },
+  {
+    "id": "supported_04",
+    "question": "Can FastAPI validate string lengths and minimum or maximum numeric values?",
+    "expected_behavior": "answer",
+    "reference_answer": "Yes. It supports minimum and maximum string lengths and bounds on integers and floats.",
+    "evidence_heading": "Validation",
+    "answer_correct": null,
+    "citations_supported": null,
+    "observed_behavior": "error",
+    "error": "ConnectError",
+    "elapsed_ms": 2048,
+    "behavior_match": false
+  },
+  {
+    "id": "supported_05",
+    "question": "Where can API keys be supplied in FastAPI's supported security schemes?",
+    "expected_behavior": "answer",
+    "reference_answer": "Headers, query parameters, or cookies.",
+    "evidence_heading": "Security and authentication",
+    "answer_correct": null,
+    "citations_supported": null,
+    "observed_behavior": "error",
+    "error": "ConnectError",
+    "elapsed_ms": 2053,
+    "behavior_match": false
+  }
+]
