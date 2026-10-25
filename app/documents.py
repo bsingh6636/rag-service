@@ -9,6 +9,6 @@ def load_document() -> dict [str , str] :
 
     return {
         "title" : "FAST APU features" ,
-        "source " :  "https://fastapi.tiangolo.com/features/",
+        "source" :  "https://fastapi.tiangolo.com/features/",
         "content" : content 
     }
