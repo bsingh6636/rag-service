@@ -8,7 +8,7 @@ def load_document() -> dict [str , str] :
         raise ValueError("Document is empty")
 
     return {
-        "title" : "FAST APU features" ,
+        "title" : "FastAPI features" ,
         "source" :  "https://fastapi.tiangolo.com/features/",
         "content" : content 
     }
