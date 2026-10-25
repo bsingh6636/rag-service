@@ -25,7 +25,7 @@ def ingest_document() -> dict :
         logger.info("Embedding chunk %d%d",  index + 1 , len(chunks) )
 
         embedding_input = (
-            f"title : {document['title'] | text : {chunk} }"
+            f"title : {document['title'] }| text : {chunk}"
         )
 
         vector = embed_text(embedding_input)
@@ -40,7 +40,7 @@ def ingest_document() -> dict :
             cur.execute(
                 """
                 INSERT INTO documents (source , title)
-                VALUES (%S, %S)
+                VALUES (%s, %s)
                 ON CONFLICT (source)
                 DO UPDATE SET title = EXCLUDED.title
                 RETURNING id

@@ -1,7 +1,7 @@
 from pathlib import Path
 
 def load_document() -> dict [str , str] :
-    path = Path("data/docs/fastapi-features.md")
+    path = Path(__file__).resolve().parent.parent / "data" / "docs" / "fastapi-features.md"
     content = path.read_text(encoding = "utf-8")
 
     if not content.strip() :
