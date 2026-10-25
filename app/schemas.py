@@ -23,3 +23,7 @@ class Source(BaseModel) :
 class RagAnswer ( BaseModel ) :
     answer : str 
     sources : list[Source]
+
+class IngestResult (BaseModel) :
+    document_id : int 
+    chunks_saved : int

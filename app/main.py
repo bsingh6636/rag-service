@@ -4,8 +4,9 @@ import httpx
 import logging
 
 from app.llm import ask_direct
-from app.schemas import AskRequest , DirectAnswer, RagAnswer
+from app.schemas import AskRequest , DirectAnswer, RagAnswer, IngestResult
 from app.rag import ask_rag
+from app.ingest import ingest_document
 
 
 from app.config import settings
@@ -72,3 +73,27 @@ def ask_route(body : AskRequest) :
         raise HTTPException(
             status_code=502, detail="Invalid AI response or citation"
         ) from None
+
+@app.post("/ingest", response_model = IngestResult)
+def ingest_route() :
+    try :
+        return ingest_document()
+    
+    except httpx.TimeoutException:
+        raise HTTPException(
+            status_code=504,
+            detail="Embedding provider timed out",
+        ) from None
+
+    except httpx.HTTPError:
+        raise HTTPException(
+            status_code=502,
+            detail="Embedding provider request failed",
+        ) from None
+
+    except psycopg.Error:
+        raise HTTPException(
+            status_code=503,
+            detail="Database request failed",
+        ) from None
+    
