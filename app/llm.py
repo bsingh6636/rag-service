@@ -1,27 +1,26 @@
 import json 
-
 import httpx
-
 import logging
-from time import perf_counter
 
-from pydantic import ValidationError
+from time import perf_counter
+from pydantic import ValidationError, BaseModel , ValidationError
+from typing import TypeVar
 
 from app.config import settings
 from app.schemas import DirectAnswer 
 
+AnswerType = TypeVar("AnswerType", bound = BaseModel)
+
 SYSTEM = (
-    "Answer briefly from your own knowledge. State assumptions explicitly. "
-    "Return ONLY one JSON object, without Markdown fences or extra text. "
+    "Answer briefly from your own knowledge. "
+    "State assumptions explicitly. "
     "Confidence is your self-assessment from 0 to 1. "
-    "Use an empty assumptions list when none are needed. "
-    "Match this JSON schema: "
-    + json.dumps(DirectAnswer.model_json_schema())
+    "Use an empty assumptions list when none are needed."
 )
 
 logger = logging.getLogger(__name__)
 
-def ask_direct( question : str ) -> DirectAnswer :
+def request_json( prompt : str , system : str , response_model : type[AnswerType] ) -> AnswerType :
     started = perf_counter()
     logger.info("MWAPI request started model = %s" , settings.chat_model)
     response = httpx.post(
@@ -33,9 +32,14 @@ def ask_direct( question : str ) -> DirectAnswer :
         json = {
             "model" : settings.chat_model ,
             "max_tokens" : 512 ,
-            "system" : SYSTEM, 
+            "system": (
+                    system
+                    + "\nReturn ONLY one JSON object, without Markdown fences. "
+                    + "Match this JSON schema:\n"
+                    + json.dumps(response_model.model_json_schema())
+                    ),
             "messages" : [
-                { "role" : "user" , "content"  : question}
+                { "role" : "user" , "content"  : prompt}
             ],
         },
         timeout = 45
@@ -92,7 +96,7 @@ def ask_direct( question : str ) -> DirectAnswer :
     logger.info("Model text normalized chars=%d", len(text))
 
     try : 
-        answer = DirectAnswer.model_validate_json(text)
+        answer = response_model.model_validate_json(text)
     except ValidationError as exc :
         logger.error(
             "Model valdation failed : %s",
@@ -106,3 +110,10 @@ def ask_direct( question : str ) -> DirectAnswer :
 
     logger.info("Model answer validated")
     return answer
+
+def ask_direct ( question : str ) -> DirectAnswer :
+    return request_json(
+        prompt = question,
+        system = SYSTEM,
+        response_model = DirectAnswer,
+    )

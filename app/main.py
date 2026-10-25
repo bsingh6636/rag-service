@@ -4,7 +4,9 @@ import httpx
 import logging
 
 from app.llm import ask_direct
-from app.schemas import AskRequest , DirectAnswer
+from app.schemas import AskRequest , DirectAnswer, RagAnswer
+from app.rag import ask_rag
+
 
 from app.config import settings
 
@@ -39,4 +41,34 @@ def ask_direct_route( body : AskRequest ) :
     except (ValueError, KeyError, TypeError) :
         raise HTTPException(
             status_code=502, detail="MWAPI returned an invalid answer"
+        ) from None
+
+@app.post("/ask" , response_model = RagAnswer)
+def ask_route(body : AskRequest) :
+    if not body.question.strip() :
+        raise HTTPException(
+            status_code = 422 , 
+            detail = "Question can not be blank"
+        )
+
+    try : 
+        return ask_rag(body.question)
+    except httpx.TimeoutException:
+        raise HTTPException(
+            status_code=504, detail="AI provider timed out"
+        ) from None
+
+    except httpx.HTTPError:
+        raise HTTPException(
+            status_code=502, detail="AI provider request failed"
+        ) from None
+
+    except psycopg.Error:
+        raise HTTPException(
+            status_code=503, detail="Database request failed"
+        ) from None
+
+    except (ValueError, KeyError, TypeError):
+        raise HTTPException(
+            status_code=502, detail="Invalid AI response or citation"
         ) from None
