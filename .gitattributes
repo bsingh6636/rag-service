@@ -1,0 +1,11 @@
+# Enforce UTF-8 text handling and standard LF line endings
+* text=auto eol=lf
+
+# Documentation and text files
+*.md text eol=lf
+*.txt text eol=lf
+*.py text eol=lf
+*.json text eol=lf
+*.sql text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf

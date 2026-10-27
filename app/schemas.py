@@ -1,29 +1,43 @@
+from pydantic import BaseModel, ConfigDict, Field
 
-from pydantic import BaseModel , ConfigDict , Field
 
-class AskRequest ( BaseModel ) : 
-    question : str = Field(min_length = 3 , max_length = 1000)
+class AskRequest(BaseModel):
+    question: str = Field(min_length=3, max_length=1000)
 
-class DirectAnswer ( BaseModel ) :
+
+class DirectAnswer(BaseModel):
     model_config = ConfigDict(extra="forbid")
-    answer : str 
-    confidence : float = Field( ge = 0.0 , le = 1.0 )
-    assumptions : list[str]
+    answer: str
+    confidence: float = Field(ge=0.0, le=1.0)
+    assumptions: list[str]
 
-class RagDraft(BaseModel) :
+
+class RagDraft(BaseModel):
     model_config = ConfigDict(extra="forbid")
-    answer : str = Field(min_length = 1)
-    chunk_ids : list[int]
+    answer: str = Field(min_length=1)
+    chunk_ids: list[int]
 
-class Source(BaseModel) :
-    chunk_id : int 
-    title : str | None
-    source : str
 
-class RagAnswer ( BaseModel ) :
-    answer : str 
-    sources : list[Source]
+class Source(BaseModel):
+    chunk_id: int
+    title: str | None
+    source: str
 
-class IngestResult (BaseModel) :
-    document_id : int 
-    chunks_saved : int
+
+class RagAnswer(BaseModel):
+    answer: str
+    sources: list[Source]
+
+
+class DocumentIngestSummary(BaseModel):
+    document_id: int
+    source: str
+    title: str | None = None
+    chunks_saved: int
+
+
+class IngestResult(BaseModel):
+    document_id: int | None = None
+    chunks_saved: int
+    documents_ingested: int = 1
+    details: list[DocumentIngestSummary] = []

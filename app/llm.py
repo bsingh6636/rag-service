@@ -12,10 +12,14 @@ from app.schemas import DirectAnswer
 AnswerType = TypeVar("AnswerType", bound = BaseModel)
 
 SYSTEM = (
-    "Answer briefly from your own knowledge. "
+    "Answer briefly from your existing knowledge. "
+    "No browsing or external tools are available in this request. "
+    "Never simulate tool calls or claim you searched the web. "
+    "If you lack reliable information, say you do not know. "
     "State assumptions explicitly. "
     "Confidence is your self-assessment from 0 to 1. "
-    "Use an empty assumptions list when none are needed."
+    "Use an empty assumptions list when none are needed. "
+    "Return only the required JSON object, with no surrounding commentary."
 )
 
 logger = logging.getLogger(__name__)

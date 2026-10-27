@@ -1,17 +1,20 @@
-from pydantic_settings import BaseSettings , SettingsConfigDict
+from pydantic_settings import BaseSettings, SettingsConfigDict
+
 
 class Settings(BaseSettings):
-    database_url : str 
-    mwapi_api_key : str 
-    embedding_dim : int = 1536
-    mwapi_url : str =  "https://api.mwapi.dev/v1"
+    database_url: str
+    mwapi_api_key: str
+    embedding_dim: int = 1536
+    mwapi_url: str = "https://api.mwapi.dev/v1"
     chat_model: str = "claude-haiku-4-5-20251001"
-    embedding_model : str = "gemini-embedding-2"
+    embedding_model: str = "gemini-embedding-2"
     gemini_api_key: str
+    similarity_threshold: float = 0.65
 
-    model_config = SettingsConfigDict (
-        env_file = ".env",
-        extra = "ignore"
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        extra="ignore",
     )
+
 
 settings = Settings()

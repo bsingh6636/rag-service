@@ -70,6 +70,48 @@
     "evidence_heading": "Pydantic features"
   },
   {
+    "id": "supported_11",
+    "question": "How can dependencies be overridden for testing purposes in FastAPI?",
+    "expected_behavior": "answer",
+    "reference_answer": "By assigning mock or stub callables to app.dependency_overrides using the original dependency function as the key.",
+    "evidence_heading": "Dependency Overrides for Testing"
+  },
+  {
+    "id": "supported_12",
+    "question": "How does FastAPI handle dependency cleanup or teardown with database sessions?",
+    "expected_behavior": "answer",
+    "reference_answer": "By using yield dependencies where code before yield runs before the endpoint and code after yield (e.g. in a finally block) runs after the response is sent.",
+    "evidence_heading": "Dependencies with yield (Cleanup and Teardown)"
+  },
+  {
+    "id": "supported_13",
+    "question": "Which hashing algorithm does FastAPI recommend using with Passlib for password security?",
+    "expected_behavior": "answer",
+    "reference_answer": "Bcrypt using Passlib CryptContext(schemes=['bcrypt']).",
+    "evidence_heading": "Password Hashing with Passlib and Bcrypt"
+  },
+  {
+    "id": "supported_14",
+    "question": "Which OAuth2 flow is commonly used with JSON Web Tokens (JWT) for authentication in FastAPI?",
+    "expected_behavior": "answer",
+    "reference_answer": "OAuth2 password flow with Bearer tokens using OAuth2PasswordBearer and OAuth2PasswordRequestForm.",
+    "evidence_heading": "OAuth2 with Password Flow and Bearer Tokens"
+  },
+  {
+    "id": "supported_15",
+    "question": "What is the recommended design separation between database models and API schemas when using SQLAlchemy with FastAPI?",
+    "expected_behavior": "answer",
+    "reference_answer": "SQLAlchemy models define database tables, column structures, and relationships, while Pydantic schemas define API request and response payload shapes and data validation.",
+    "evidence_heading": "Separating SQLAlchemy Models from Pydantic Schemas"
+  },
+  {
+    "id": "supported_16",
+    "question": "When are FastAPI BackgroundTasks executed in the request lifecycle?",
+    "expected_behavior": "answer",
+    "reference_answer": "Background tasks are executed immediately after the HTTP response has been sent to the client.",
+    "evidence_heading": "Using BackgroundTasks"
+  },
+  {
     "id": "refusal_01",
     "question": "What is the capital of France?",
     "expected_behavior": "refuse",

@@ -1,0 +1,444 @@
+[
+  {
+    "id": "supported_01",
+    "question": "Which two API documentation interfaces does FastAPI include by default?",
+    "expected_behavior": "answer",
+    "reference_answer": "Swagger UI and ReDoc.",
+    "evidence_heading": "Automatic docs",
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "FastAPI includes two API documentation interfaces by default: Swagger UI and ReDoc. Swagger UI provides interactive exploration where you can call and test your API directly from the browser, while ReDoc offers an alternative API documentation interface.",
+      "sources": [
+        {
+          "chunk_id": 74,
+          "title": "FastAPI features",
+          "source": "https://fastapi.tiangolo.com/features/"
+        }
+      ]
+    },
+    "observed_behavior": "answer",
+    "elapsed_ms": 2992,
+    "behavior_match": true
+  },
+  {
+    "id": "supported_02",
+    "question": "Which standards does FastAPI use for API descriptions and data model documentation?",
+    "expected_behavior": "answer",
+    "reference_answer": "OpenAPI for API descriptions and JSON Schema for data model documentation.",
+    "evidence_heading": "Based on open standards",
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "FastAPI uses OpenAPI for API descriptions, including declarations of paths, operations, parameters, request bodies, and security. For data model documentation, FastAPI uses JSON Schema, which is automatically generated since OpenAPI itself is based on JSON Schema.",
+      "sources": [
+        {
+          "chunk_id": 73,
+          "title": "FastAPI features",
+          "source": "https://fastapi.tiangolo.com/features/"
+        }
+      ]
+    },
+    "observed_behavior": "answer",
+    "elapsed_ms": 3167,
+    "behavior_match": true
+  },
+  {
+    "id": "supported_03",
+    "question": "Which library handles FastAPI's data validation?",
+    "expected_behavior": "answer",
+    "reference_answer": "Pydantic.",
+    "evidence_heading": "Validation",
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "Pydantic handles FastAPI's data validation. According to the documentation, all validation is handled by the well-established and robust Pydantic library, and FastAPI is fully compatible with and based on Pydantic for all data handling.",
+      "sources": [
+        {
+          "chunk_id": 78,
+          "title": "FastAPI features",
+          "source": "https://fastapi.tiangolo.com/features/"
+        },
+        {
+          "chunk_id": 84,
+          "title": "FastAPI features",
+          "source": "https://fastapi.tiangolo.com/features/"
+        }
+      ]
+    },
+    "observed_behavior": "answer",
+    "elapsed_ms": 3119,
+    "behavior_match": true
+  },
+  {
+    "id": "supported_04",
+    "question": "Can FastAPI validate string lengths and minimum or maximum numeric values?",
+    "expected_behavior": "answer",
+    "reference_answer": "Yes. It supports minimum and maximum string lengths and bounds on integers and floats.",
+    "evidence_heading": "Validation",
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "Yes. FastAPI validates string lengths through min and max length constraints on string (`str`) fields, and validates numeric values through min and max value constraints on numbers (`int`, `float`). All validation is handled by Pydantic, which FastAPI is based on.",
+      "sources": [
+        {
+          "chunk_id": 78,
+          "title": "FastAPI features",
+          "source": "https://fastapi.tiangolo.com/features/"
+        }
+      ]
+    },
+    "observed_behavior": "answer",
+    "elapsed_ms": 2704,
+    "behavior_match": true
+  },
+  {
+    "id": "supported_05",
+    "question": "Where can API keys be supplied in FastAPI's supported security schemes?",
+    "expected_behavior": "answer",
+    "reference_answer": "Headers, query parameters, or cookies.",
+    "evidence_heading": "Security and authentication",
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "According to FastAPI's supported security schemes, API keys can be supplied in headers, query parameters, or cookies. [86] The documentation specifically mentions headers (such as `X-API-Key`), query parameters, and cookie values as the locations where API keys can be passed. [79]",
+      "sources": [
+        {
+          "chunk_id": 86,
+          "title": "FastAPI Security and Authentication",
+          "source": "https://fastapi.tiangolo.com/tutorial/security/"
+        },
+        {
+          "chunk_id": 79,
+          "title": "FastAPI features",
+          "source": "https://fastapi.tiangolo.com/features/"
+        }
+      ]
+    },
+    "observed_behavior": "answer",
+    "elapsed_ms": 2977,
+    "behavior_match": true
+  },
+  {
+    "id": "supported_06",
+    "question": "Which authentication mechanisms are explicitly mentioned on the features page?",
+    "expected_behavior": "answer",
+    "reference_answer": "HTTP Basic, OAuth2 including JWT tokens, and API keys. Session cookies are also mentioned.",
+    "evidence_heading": "Security and authentication",
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "The features page explicitly mentions the following authentication mechanisms: HTTP Basic, OAuth2 (with JWT tokens), API keys (in headers, query parameters, and cookies), session cookies, and OpenID Connect.",
+      "sources": [
+        {
+          "chunk_id": 79,
+          "title": "FastAPI features",
+          "source": "https://fastapi.tiangolo.com/features/"
+        },
+        {
+          "chunk_id": 86,
+          "title": "FastAPI Security and Authentication",
+          "source": "https://fastapi.tiangolo.com/tutorial/security/"
+        }
+      ]
+    },
+    "observed_behavior": "answer",
+    "elapsed_ms": 3739,
+    "behavior_match": true
+  },
+  {
+    "id": "supported_07",
+    "question": "Can FastAPI dependencies themselves have dependencies?",
+    "expected_behavior": "answer",
+    "reference_answer": "Yes. Dependencies can form a hierarchy or graph of dependencies.",
+    "evidence_heading": "Dependency Injection",
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "Yes, FastAPI dependencies can have dependencies. You can declare dependencies that themselves declare dependencies using `Depends()`. FastAPI resolves them in the correct order, building a dependency tree or directed acyclic graph (DAG). Additionally, if a dependency is declared multiple times in different places of the same path operation, FastAPI calls it only once per request and caches the return value.",
+      "sources": [
+        {
+          "chunk_id": 66,
+          "title": "FastAPI Dependency Injection",
+          "source": "https://fastapi.tiangolo.com/tutorial/dependencies/"
+        }
+      ]
+    },
+    "observed_behavior": "answer",
+    "elapsed_ms": 2925,
+    "behavior_match": true
+  },
+  {
+    "id": "supported_08",
+    "question": "What is the relationship between FastAPI and Starlette?",
+    "expected_behavior": "answer",
+    "reference_answer": "FastAPI is based on Starlette and its FastAPI class is a subclass of Starlette.",
+    "evidence_heading": "Starlette features",
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "FastAPI is fully compatible with and based on Starlette. FastAPI is actually a sub-class of Starlette, meaning that if you know Starlette, most of the functionality will work the same way. FastAPI is described as \"Starlette on steroids\" and inherits all of Starlette's features, including WebSocket support, background tasks, startup and shutdown events, CORS, GZip, static files, streaming responses, session and cookie support, and a test client built on HTTPX.",
+      "sources": [
+        {
+          "chunk_id": 83,
+          "title": "FastAPI features",
+          "source": "https://fastapi.tiangolo.com/features/"
+        }
+      ]
+    },
+    "observed_behavior": "answer",
+    "elapsed_ms": 2978,
+    "behavior_match": true
+  },
+  {
+    "id": "supported_09",
+    "question": "Does the page list support for WebSockets and in-process background tasks?",
+    "expected_behavior": "answer",
+    "reference_answer": "Yes. Both are listed among the Starlette features available through FastAPI.",
+    "evidence_heading": "Starlette features",
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "Yes, the page lists support for both WebSockets and in-process background tasks. According to the documentation, FastAPI includes \"WebSocket support\" and \"In-process background tasks\" as features inherited from Starlette [chunk_id: 83]. The page further explains that FastAPI's `BackgroundTasks` runs tasks in-process, executing synchronous functions in a thread pool or asynchronous functions in the event loop after the response is sent [chunk_id: 61].",
+      "sources": [
+        {
+          "chunk_id": 83,
+          "title": "FastAPI features",
+          "source": "https://fastapi.tiangolo.com/features/"
+        },
+        {
+          "chunk_id": 61,
+          "title": "FastAPI Background Tasks",
+          "source": "https://fastapi.tiangolo.com/tutorial/background-tasks/"
+        }
+      ]
+    },
+    "observed_behavior": "answer",
+    "elapsed_ms": 4463,
+    "behavior_match": true
+  },
+  {
+    "id": "supported_10",
+    "question": "Does FastAPI support validation of deeply nested JSON objects?",
+    "expected_behavior": "answer",
+    "reference_answer": "Yes. The Pydantic features section describes nested models, lists, dictionaries, and deeply nested JSON validation.",
+    "evidence_heading": "Pydantic features",
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "Yes, FastAPI supports validation of deeply nested JSON objects. According to the documentation, FastAPI can \"validate complex structures\" using \"hierarchical Pydantic models, Python `typing`'s `List` and `Dict`\" and \"you can have deeply nested JSON objects and have them all validated and annotated.\" The validation is handled by Pydantic, which FastAPI is based on.",
+      "sources": [
+        {
+          "chunk_id": 84,
+          "title": "FastAPI features",
+          "source": "https://fastapi.tiangolo.com/features/"
+        }
+      ]
+    },
+    "observed_behavior": "answer",
+    "elapsed_ms": 3228,
+    "behavior_match": true
+  },
+  {
+    "id": "supported_11",
+    "question": "How can dependencies be overridden for testing purposes in FastAPI?",
+    "expected_behavior": "answer",
+    "reference_answer": "By assigning mock or stub callables to app.dependency_overrides using the original dependency function as the key.",
+    "evidence_heading": "Dependency Overrides for Testing",
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "Dependencies can be overridden for testing in FastAPI using `app.dependency_overrides`, a dictionary that maps original dependency functions to their test replacements. To override a dependency, assign the replacement function to `app.dependency_overrides[original_function]`. For example, you can override a database dependency with a test database session. After testing is complete, clear the overrides by setting `app.dependency_overrides = {}`.",
+      "sources": [
+        {
+          "chunk_id": 70,
+          "title": "FastAPI Dependency Injection",
+          "source": "https://fastapi.tiangolo.com/tutorial/dependencies/"
+        }
+      ]
+    },
+    "observed_behavior": "answer",
+    "elapsed_ms": 3332,
+    "behavior_match": true
+  },
+  {
+    "id": "supported_12",
+    "question": "How does FastAPI handle dependency cleanup or teardown with database sessions?",
+    "expected_behavior": "answer",
+    "reference_answer": "By using yield dependencies where code before yield runs before the endpoint and code after yield (e.g. in a finally block) runs after the response is sent.",
+    "evidence_heading": "Dependencies with yield (Cleanup and Teardown)",
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "FastAPI handles dependency cleanup and teardown with database sessions using the `yield` keyword in dependency functions. Code before `yield` executes before the path operation, and code after `yield` executes after the response is sent. A `finally` block guarantees the database session is closed even if exceptions occur during request handling. The recommended pattern creates a fresh database session for each request, passes it via dependency injection, and reliably closes it after the response is sent, returning the connection to the connection pool.",
+      "sources": [
+        {
+          "chunk_id": 67,
+          "title": "FastAPI Dependency Injection",
+          "source": "https://fastapi.tiangolo.com/tutorial/dependencies/"
+        },
+        {
+          "chunk_id": 95,
+          "title": "FastAPI with SQL Databases",
+          "source": "https://fastapi.tiangolo.com/tutorial/sql-databases/"
+        }
+      ]
+    },
+    "observed_behavior": "answer",
+    "elapsed_ms": 3648,
+    "behavior_match": true
+  },
+  {
+    "id": "supported_13",
+    "question": "Which hashing algorithm does FastAPI recommend using with Passlib for password security?",
+    "expected_behavior": "answer",
+    "reference_answer": "Bcrypt using Passlib CryptContext(schemes=['bcrypt']).",
+    "evidence_heading": "Password Hashing with Passlib and Bcrypt",
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "FastAPI recommends using Bcrypt with Passlib for password hashing and security.",
+      "sources": [
+        {
+          "chunk_id": 88,
+          "title": "FastAPI Security and Authentication",
+          "source": "https://fastapi.tiangolo.com/tutorial/security/"
+        }
+      ]
+    },
+    "observed_behavior": "answer",
+    "elapsed_ms": 2446,
+    "behavior_match": true
+  },
+  {
+    "id": "supported_14",
+    "question": "Which OAuth2 flow is commonly used with JSON Web Tokens (JWT) for authentication in FastAPI?",
+    "expected_behavior": "answer",
+    "reference_answer": "OAuth2 password flow with Bearer tokens using OAuth2PasswordBearer and OAuth2PasswordRequestForm.",
+    "evidence_heading": "OAuth2 with Password Flow and Bearer Tokens",
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "The OAuth2 password flow is commonly used with JSON Web Tokens (JWT) for authentication in FastAPI. In this flow, the client sends username and password to a `/token` endpoint, the server verifies credentials and returns a signed JWT as an access token, and subsequent requests include the token in the `Authorization: Bearer <token>` header for verification.",
+      "sources": [
+        {
+          "chunk_id": 87,
+          "title": "FastAPI Security and Authentication",
+          "source": "https://fastapi.tiangolo.com/tutorial/security/"
+        },
+        {
+          "chunk_id": 79,
+          "title": "FastAPI features",
+          "source": "https://fastapi.tiangolo.com/features/"
+        }
+      ]
+    },
+    "observed_behavior": "answer",
+    "elapsed_ms": 3161,
+    "behavior_match": true
+  },
+  {
+    "id": "supported_15",
+    "question": "What is the recommended design separation between database models and API schemas when using SQLAlchemy with FastAPI?",
+    "expected_behavior": "answer",
+    "reference_answer": "SQLAlchemy models define database tables, column structures, and relationships, while Pydantic schemas define API request and response payload shapes and data validation.",
+    "evidence_heading": "Separating SQLAlchemy Models from Pydantic Schemas",
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "The recommended design separation is to keep SQLAlchemy models separate from Pydantic schemas. SQLAlchemy models (in `models.py`) define the actual database table structures, column types, primary keys, foreign keys, and relationships. Pydantic schemas (in `schemas.py`) define the shapes of request bodies and response payloads, handling input validation, serialization, and OpenAPI documentation. To enable Pydantic models to read data directly from SQLAlchemy ORM objects, set `model_config = ConfigDict(from_attributes=True)` (or `orm_mode = True` in Pydantic v1). Additionally, database queries should be separated into dedicated CRUD utility functions (`crud.py`), while path operations remain focused on HTTP concerns.",
+      "sources": [
+        {
+          "chunk_id": 94,
+          "title": "FastAPI with SQL Databases",
+          "source": "https://fastapi.tiangolo.com/tutorial/sql-databases/"
+        },
+        {
+          "chunk_id": 96,
+          "title": "FastAPI with SQL Databases",
+          "source": "https://fastapi.tiangolo.com/tutorial/sql-databases/"
+        }
+      ]
+    },
+    "observed_behavior": "answer",
+    "elapsed_ms": 3419,
+    "behavior_match": true
+  },
+  {
+    "id": "supported_16",
+    "question": "When are FastAPI BackgroundTasks executed in the request lifecycle?",
+    "expected_behavior": "answer",
+    "reference_answer": "Background tasks are executed immediately after the HTTP response has been sent to the client.",
+    "evidence_heading": "Using BackgroundTasks",
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "FastAPI BackgroundTasks are executed after the HTTP response has been sent. According to the execution model, synchronous `def` functions run in an external thread pool, while asynchronous `async def` functions are awaited directly in the event loop after the response has been sent.",
+      "sources": [
+        {
+          "chunk_id": 61,
+          "title": "FastAPI Background Tasks",
+          "source": "https://fastapi.tiangolo.com/tutorial/background-tasks/"
+        },
+        {
+          "chunk_id": 59,
+          "title": "FastAPI Background Tasks",
+          "source": "https://fastapi.tiangolo.com/tutorial/background-tasks/"
+        }
+      ]
+    },
+    "observed_behavior": "answer",
+    "elapsed_ms": 3487,
+    "behavior_match": true
+  },
+  {
+    "id": "refusal_01",
+    "question": "What is the capital of France?",
+    "expected_behavior": "refuse",
+    "reference_answer": "The corpus does not provide this information.",
+    "evidence_heading": null,
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "I can't answer that from the available documents.",
+      "sources": []
+    },
+    "observed_behavior": "refuse",
+    "elapsed_ms": 918,
+    "behavior_match": true
+  },
+  {
+    "id": "refusal_02",
+    "question": "What temperature and baking time should I use for a chocolate cake?",
+    "expected_behavior": "refuse",
+    "reference_answer": "The corpus does not provide cooking instructions.",
+    "evidence_heading": null,
+    "answer_correct": null,
+    "citations_supported": null,
+    "http_status": 200,
+    "response": {
+      "answer": "I can't answer that from the available documents.",
+      "sources": []
+    },
+    "observed_behavior": "refuse",
+    "elapsed_ms": 816,
+    "behavior_match": true
+  }
+]
