@@ -1,17 +1,34 @@
 import json
+import argparse
 from datetime import datetime, timezone
 from pathlib import Path
 from time import perf_counter
+from typing import Any
 
+from annotated_types.test_cases import cases
 import httpx
 
 from app.rag import NO_ANSWER
 from app.schemas import RagAnswer
 
-ROOT = Path(__file__).resolve().parent
-cases = json.loads((ROOT / "eval/cases.json").read_text(encoding="utf-8"))
-timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
-output = ROOT / "eval" / f"results-{timestamp}.json"
+ROOT: Path = Path(__file__).resolve().parent
+
+parser = argparse.ArgumentParser(description="Evaluate the RAG API")
+parser.add_argument(
+    "--cases",
+    default="eval/cases.json",
+    help="Case-file path relative to the project root"
+)
+args = parser.parse_args()
+cases_path = ROOT / args.cases
+cases = json.loads(cases_path.read_text(encoding="utf-8"))
+
+
+timestamp: str = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+output : Path = ROOT / "eval" / f"results-{cases_path.stem}-{timestamp}.json"
+
+print("Cases:", cases_path)
+print("Questions:", len(cases))
 
 
 def observe(payload: dict) -> str:
