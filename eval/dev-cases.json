@@ -1,0 +1,9 @@
+[
+  {
+    "id": "near_miss_01",
+    "question": "What retry count and backoff does FastAPI automatically apply to failed BackgroundTasks?",
+    "expected_behavior": "refuse",
+    "reference_answer": "The supplied documents do not specify an automatic retry count or backoff schedule.",
+    "evidence_heading": null
+  }
+]
